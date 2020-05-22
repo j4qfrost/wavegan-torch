@@ -160,9 +160,9 @@ class WaveGANGenerator(nn.Module):
     def forward(self, x):
 
         x = self.fc1(x).view(-1, 16 * self.model_size, 16)
-        x = F.relu(x)
         output = None
         if self.verbose:
+            x = F.relu(x)
             print(x.shape)
         
         if self.upsample:
